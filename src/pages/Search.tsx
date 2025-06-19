@@ -117,7 +117,7 @@ const Search = () => {
         property.location.toLowerCase().includes(filters.query.toLowerCase()) ||
         property.description.toLowerCase().includes(filters.query.toLowerCase());
       
-      const matchesType = !filters.type || property.type === filters.type;
+      const matchesType = !filters.type || filters.type === 'all' || property.type === filters.type;
       const matchesLocation = !filters.location || 
         property.location.toLowerCase().includes(filters.location.toLowerCase());
       const matchesPrice = property.price >= filters.minPrice && property.price <= filters.maxPrice;
@@ -190,7 +190,7 @@ const Search = () => {
                 <SelectValue placeholder="Type" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Types</SelectItem>
+                <SelectItem value="all">All Types</SelectItem>
                 <SelectItem value="house">House</SelectItem>
                 <SelectItem value="room">Room</SelectItem>
                 <SelectItem value="seat">Seat</SelectItem>
